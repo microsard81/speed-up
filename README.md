@@ -1,4 +1,4 @@
 # speed-up
-AlwaysOn Speed-UP customization
+AlwaysOn Speed-UP customization. Files for device customization
 
-Files for speed-up device customization
+
