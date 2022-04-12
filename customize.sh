@@ -10,6 +10,8 @@ cd microsard81-speed-up*
 cp -R luci-static/argon /www/luci-static/.
 cp -R themes/argon /usr/lib/lua/luci/view/themes/.
 cp resources/* /www/luci-static/resources/.
+read -p 'SU model: ' sumodel
+cp banner /etc/banner
 cd /tmp
 rm -fR microsard81-speed-up*
 cd $current
