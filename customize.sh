@@ -12,9 +12,12 @@ cp -R themes/argon /usr/lib/lua/luci/view/themes/.
 cp resources/* /www/luci-static/resources/.
 echo "------------------------------------------------------------------------------------------------"
 echo "================================================================================================"
-echo "\nPlease, specify the device model\n"
+echo " "
+echo "Please, specify the device model"
+echo " "
 echo "================================================================================================"
 read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
+echo " "
 echo "
 
                         ..::^~~~!!!!!!!!777777777!!~^^:.
@@ -42,10 +45,13 @@ echo "
 
    Contact: info@sundata.it
 
-------------------------------------------------------------------------------\n\n" > /etc/banner
+------------------------------------------------------------------------------
+
+" > /etc/banner
 cd /tmp
 rm -fR microsard81-speed-up*
 cd $current
 echo "================================================================================================"
 echo "Customization complete. Please reboot the device"
+echo " "
 rm -- "$0"
