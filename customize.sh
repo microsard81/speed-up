@@ -10,6 +10,10 @@ cd microsard81-speed-up*
 cp -R luci-static/argon /www/luci-static/.
 cp -R themes/argon /usr/lib/lua/luci/view/themes/.
 cp resources/* /www/luci-static/resources/.
+echo "------------------------------------------------------------------------------------------------"
+echo "================================================================================================"
+echo "\nPlease, specify the device model\n"
+echo "================================================================================================"
 read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
 echo "
 
@@ -42,4 +46,6 @@ echo "
 cd /tmp
 rm -fR microsard81-speed-up*
 cd $current
+echo "================================================================================================"
+echo "Customization complete. Please reboot the device"
 rm -- "$0"
