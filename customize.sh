@@ -17,6 +17,7 @@ echo "Please, specify the device model"
 echo " "
 echo "================================================================================================"
 read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
+read -p 'SU S/N: ' sn
 echo " "
 echo "
 
@@ -41,6 +42,7 @@ echo "
 ------------------------------------------------------------------------------
 
    Model: SU$sumodel
+   S/N: $sn
    Firmware version: 1.0b
 
    Contact: info@sundata.it
@@ -50,6 +52,11 @@ echo "
 " > /etc/banner
 cd /tmp
 rm -fR microsard81-speed-up*
+cd /etc/dropbear
+rm -f dropbear_ed25519_host_key
+rm -f dropbear_rsa_host_key
+dropbearkey -f dropbear_ed25519_host_key -t ed25519
+dropbearkey -f dropbear_rsa_host_key -t rsa -s 2048
 cd $current
 echo "================================================================================================"
 echo "Customization complete. Please reboot the device"
