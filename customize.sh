@@ -23,7 +23,10 @@ echo " "
 uci set system.cfg1.hostname=$host
 uci commit system
 
-cat > /etc/banner << EOF
+read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
+read -p 'SU Serial Number: ' sn
+echo " "
+echo " 
   ____    _   _   _   _   ____       _      _____      _
  / ___|  | | | | | \ | | |  _ \     / \    |_   _|    / \
  \___ \  | | | | |  \| | | | | |   / _ \     | |     / _ \
@@ -35,7 +38,7 @@ cat > /etc/banner << EOF
    ALWAYS ON
 
 ------------------------------------------------------------------------------
-   
+
    Model: SU$sumodel
    Serial Number: $sn
    Firmware version: 1.0b
@@ -44,8 +47,7 @@ cat > /etc/banner << EOF
 
 ------------------------------------------------------------------------------
 
-EOF
-
+" > /etc/banner
 cd /tmp
 rm -fR microsard81-speed-up*
 cd /etc/dropbear
