@@ -22,10 +22,6 @@ read -p 'SU hostname: ' host
 echo " "
 uci set system.cfg1.hostname=$host
 uci commit system
-
-read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
-read -p 'SU Serial Number: ' sn
-echo " "
 echo " 
   ____    _   _   _   _   ____       _      _____      _
  / ___|  | | | | | \ | | |  _ \     / \    |_   _|    / \
