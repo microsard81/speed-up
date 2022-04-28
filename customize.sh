@@ -13,12 +13,15 @@ cp resources/* /www/luci-static/resources/.
 echo "------------------------------------------------------------------------------------------------"
 echo "================================================================================================"
 echo " "
-echo "Please, specify the device model"
+echo "Please, specify the device details"
 echo " "
 echo "================================================================================================"
 read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
 read -p 'SU Serial Number: ' sn
+read -p 'SU hostname: ' host
 echo " "
+uci set system.cfg1.hostname=$host
+uci commit system
 
 cat > /etc/banner << EOF
   ____    _   _   _   _   ____       _      _____      _
