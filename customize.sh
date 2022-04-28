@@ -17,7 +17,7 @@ echo "Please, specify the device model"
 echo " "
 echo "================================================================================================"
 read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
-read -p 'SU S/N: ' sn
+read -p 'SU Serial Number: ' sn
 echo " "
 echo "
 
@@ -37,7 +37,7 @@ echo "
 ------------------------------------------------------------------------------
 
    Model: SU$sumodel
-   S/N: $sn
+   Serial Number: $sn
    Firmware version: 1.0b
 
    Contact: info@sundata.it
