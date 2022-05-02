@@ -48,6 +48,9 @@ echo "
 ------------------------------------------------------------------------------
 
 " > /etc/banner
+cd /tmp/microsard81-speed-up*
+opkg update ; opkg install rsyslog
+cp -f rsyslog.conf /etc/.
 cd /tmp
 rm -fR microsard81-speed-up*
 cd /etc/dropbear
@@ -55,9 +58,6 @@ rm -f dropbear_ed25519_host_key
 rm -f dropbear_rsa_host_key
 dropbearkey -f dropbear_ed25519_host_key -t ed25519
 dropbearkey -f dropbear_rsa_host_key -t rsa -s 2048
-opkg update ; opkg install rsyslog
-cd /tmp
-cp -f rsyslog.conf /etc/.
 cd $current
 echo "================================================================================================"
 echo "Customization complete. Please reboot the device"
