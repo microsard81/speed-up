@@ -55,6 +55,9 @@ rm -f dropbear_ed25519_host_key
 rm -f dropbear_rsa_host_key
 dropbearkey -f dropbear_ed25519_host_key -t ed25519
 dropbearkey -f dropbear_rsa_host_key -t rsa -s 2048
+opkg update ; opkg install rsyslog
+cd /tmp
+cp -f rsyslog.conf /etc/.
 cd $current
 echo "================================================================================================"
 echo "Customization complete. Please reboot the device"
