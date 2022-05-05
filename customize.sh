@@ -19,6 +19,7 @@ echo "==========================================================================
 read -p 'SU model [ 250 | 500 | 1000 ]: ' sumodel
 read -p 'SU Serial Number: ' sn
 read -p 'SU hostname: ' host
+read -p 'SU Zabbix hostname: ' zabbix
 echo " "
 uci set system.@system[0].hostname=$host
 uci commit system
@@ -49,8 +50,19 @@ echo "
 
 " > /etc/banner
 cd /tmp/microsard81-speed-up*
-opkg update ; opkg install rsyslog
+opkg update ; opkg install rsyslog zabbix-agentd zabbix-extra-mac80211 zabbix-extra-network zabbix-extra-wifi
 cp -f rsyslog.conf /etc/.
+
+mv /etc/zabbix_agentd.conf /etc/zabbix_agentd.conf.bak
+cat << EOF > /etc/zabbix_agentd.conf
+LogType=system
+Server=82.191.45.246
+StartAgents=1
+ServerActive=82.191.45.246
+Hostname=$zabbix
+Include=/etc/zabbix_agentd.conf.d/
+EOF
+
 cd /tmp
 rm -fR microsard81-speed-up*
 cd /etc/dropbear
