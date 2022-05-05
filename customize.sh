@@ -56,12 +56,14 @@ cp -f rsyslog.conf /etc/.
 mv /etc/zabbix_agentd.conf /etc/zabbix_agentd.conf.bak
 cat << EOF > /etc/zabbix_agentd.conf
 LogType=system
+AllowRoot=1
 Server=82.191.45.246
 StartAgents=1
 ServerActive=82.191.45.246
 Hostname=$zabbix
 Include=/etc/zabbix_agentd.conf.d/
 UserParameter=devicetype,AlwaysOnSpeedUp-Router
+UserParameter=serialnumber,$sn
 HostMetadataItem=devicetype
 EOF
 
