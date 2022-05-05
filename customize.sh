@@ -62,7 +62,7 @@ ServerActive=82.191.45.246
 Hostname=$zabbix
 Include=/etc/zabbix_agentd.conf.d/
 UserParameter=devicetype,AlwaysOnSpeedUp-Router
-HostMetadataltem=devicetype
+HostMetadataItem=devicetype
 EOF
 
 cd /tmp
