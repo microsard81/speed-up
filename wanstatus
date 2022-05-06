@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+
+r=""
+
+r=`uci show network.$@.ifname | awk -F'[/=]' '{print $2}')`
+r=${r//\'}
+
+
+wan=`route -n | grep $r | awk '{print $1}'`
+wan=`echo $wan | awk '{print $1}'`
+if [ "$wan" = "0.0.0.0" ] ; then
+	wanstatus="UP"
+else
+	wanstatus="DOWN"
+fi
+
+echo "$wanstatus"
+
+exit 0
