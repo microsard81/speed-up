@@ -71,8 +71,12 @@ cat << EOF > /etc/zabbix_agentd.conf.d/alwayson
 UserParameter=wan.discovery,wandiscovery
 UserParameter=wan.status[*],wanstatus $1
 EOF
-chmod +x /etc/zabbix_agentd.conf.d/alwayson
 
+chmod +x /etc/zabbix_agentd.conf.d/alwayson
+cp wanstatus /bin/.
+cp wandiscovery /bin/.
+chmod +x /bin/wanstatus
+chmod +x /bin/wandiscovery
 cd /tmp
 rm -fR microsard81-speed-up*
 cd /etc/dropbear
