@@ -3,17 +3,13 @@
 
 w=""
 wans="["
-
 for n in $(uci show network | grep wan | awk -F'[/=.]' '{print $2}' | sort -u)
 do
 	w=$w" "$n
 done
-
 for n in $(echo $w)
 do
 	wans=$wans"{\"{#WAN}\":\"$n\"},"
 done
-
 echo "${wans:: -1}]"
-
 exit 0
