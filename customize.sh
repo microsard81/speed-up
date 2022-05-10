@@ -69,10 +69,10 @@ EOF
 
 cat << EOF > /etc/zabbix_agentd.conf.d/alwayson
 UserParameter=wan.discovery,wandiscovery
-UserParameter=wan.status[*],wanstatus $1
+UserParameter=wan.status[*],wanstatus \$1
 UserParameter=wan.ip,curl -s ipinfo.io/ip
-UserParameter=wan.label[*],uci get network.$1.label
-UserParameter=wan.provider.ip[*],uci get openmptcprouter.$1.publicip
+UserParameter=wan.label[*],uci get network.\$1.label
+UserParameter=wan.provider.ip[*],uci get openmptcprouter.\$1.publicip
 
 EOF
 
