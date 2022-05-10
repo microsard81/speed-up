@@ -89,6 +89,9 @@ rm -f dropbear_rsa_host_key
 dropbearkey -f dropbear_ed25519_host_key -t ed25519
 dropbearkey -f dropbear_rsa_host_key -t rsa -s 2048
 cd $current
+echo "/etc/zabbix_agentd.conf.d/" >> /etc/sysupgrade.conf
+echo "/etc/ssl/private/" >> /etc/sysupgrade.conf
+/etc/ssl/private/
 echo "================================================================================================"
 echo "Customization complete. Please reboot the device"
 echo " "
