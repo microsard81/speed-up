@@ -2,7 +2,7 @@
 #
 
 r=""
-r=`uci show network.$@.ifname | awk -F'[/=]' '{print $2}'`
+r=`uci show network.$@.device | awk -F'[/=]' '{print $2}'`
 r=${r//\'}
 wan=`route -n | grep $r | awk '{print $1}'`
 wan=`echo $wan | awk '{print $1}'`
