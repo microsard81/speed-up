@@ -50,7 +50,7 @@ echo "
 
 " > /etc/banner
 cd /tmp/microsard81-speed-up*
-opkg update ; opkg install rsyslog zabbix-agentd zabbix-extra-mac80211 zabbix-extra-network zabbix-extra-wifi
+opkg update ; opkg install rsyslog zabbix-agentd zabbix-extra-mac80211 zabbix-extra-network zabbix-extra-wifi python3-speedtest-cli
 cp -f rsyslog.conf /etc/.
 
 mv /etc/zabbix_agentd.conf /etc/zabbix_agentd.conf.bak
