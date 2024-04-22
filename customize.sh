@@ -10,6 +10,10 @@ cd microsard81-speed-up*
 cp -R luci-static/argon /www/luci-static/.
 cp -R themes/argon /usr/lib/lua/luci/view/themes/.
 cp resources/* /www/luci-static/resources/.
+sed -i "844 i \ \t\t\tvar back = svg.getElementById('backgound_modem_1');" /usr/lib/lua/luci/view/openmptcprouter/wanstatus.htm
+sed -i "845 i \ \t\t\tback.setAttribute('style', 'fill: ' + color + ';fill-opacity:0.6;');" /usr/lib/lua/luci/view/openmptcprouter/wanstatus.htm
+sed -i "846 i \ \t\t\tvar back = svg.getElementById('backgound_modem_2');" /usr/lib/lua/luci/view/openmptcprouter/wanstatus.htm
+sed -i "847 i \ \t\t\tback.setAttribute('style', 'fill: ' + color + ';fill-opacity:0.6;');" /usr/lib/lua/luci/view/openmptcprouter/wanstatus.htm
 echo "------------------------------------------------------------------------------------------------"
 echo "================================================================================================"
 echo " "
