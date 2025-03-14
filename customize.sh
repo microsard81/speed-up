@@ -85,8 +85,10 @@ EOF
 chmod +x /etc/zabbix_agentd.conf.d/alwayson
 cp wanstatus /bin/.
 cp wandiscovery /bin/.
+cp getspeed /bin/.
 chmod +x /bin/wanstatus
 chmod +x /bin/wandiscovery
+chmod +x /bin/getspeed
 cd /tmp
 rm -fR microsard81-speed-up*
 cd /etc/dropbear
