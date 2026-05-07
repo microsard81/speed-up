@@ -54,11 +54,10 @@ echo "
 
 " > /etc/banner
 cd /tmp/microsard81-speed-up*
-opkg update ; opkg install rsyslog zabbix-agentd zabbix-extra-mac80211 zabbix-extra-network zabbix-extra-wifi python3-speedtest-cli
-cp -f rsyslog.conf /etc/.
 
-mv /etc/zabbix_agentd.conf /etc/zabbix_agentd.conf.bak
-cat << EOF > /etc/zabbix_agentd.conf
+wget -qO- https://raw.githubusercontent.com/microsard81/speed-up/main/install_zabbix.sh | sh
+
+cat << EOF > /etc/zabbix/zabbix_agentd.conf
 LogType=system
 AllowRoot=1
 Server=82.191.45.246
@@ -71,7 +70,7 @@ UserParameter=serialnumber,echo "$sn"
 HostMetadataItem=devicetype
 EOF
 
-cat << EOF > /etc/zabbix_agentd.conf.d/alwayson
+cat << EOF > /etc/zabbix/zabbix_agentd.conf.d/alwayson
 UserParameter=wan.discovery,wandiscovery
 UserParameter=wan.status[*],wanstatus \$1
 UserParameter=wan.ip,curl -s ipinfo.io/ip
@@ -82,7 +81,7 @@ UserParameter=lan.ip,echo \`uci get network.lan.ipaddr\`
 UserParameter=lan.mask,echo \`uci get network.lan.netmask\`
 EOF
 
-chmod +x /etc/zabbix_agentd.conf.d/alwayson
+chmod +x /etc/zabbix/zabbix_agentd.conf.d/alwayson
 cp wanstatus /bin/.
 cp wandiscovery /bin/.
 cp getspeed /bin/.
